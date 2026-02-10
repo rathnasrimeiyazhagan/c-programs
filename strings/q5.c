@@ -2,23 +2,25 @@
 #include<string.h>
 int main(){
     char str[100];
-
-    
     fgets(str,sizeof(str),stdin);
     int len=strlen(str);
-    int maxcount=0;
-    int count=0;
-    
-    for(int i=0;i<len;i++){
-        if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'){
-            count++;
-        if(maxcount<count){
-            maxcount=count;
-        }
+    if(str[len-1]=='\n'){
+        str[len-1]=='\0';
+        len--;
     }
-        else{
-            count=0;
+     int pal=1;
+     for(int i=0;i<len/2;i++){
+        if(str[i]!=str[len-1-i]){
+            pal=0;
+            break;
         }
-    }
-    printf("%d",maxcount);
+     }
+     if(pal){
+        printf("pallindrome");
+     }
+     else{
+        printf("Not pallindrome");
+     }
+     return 0;
 }
+    

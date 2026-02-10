@@ -2,26 +2,16 @@
 #include<string.h>
 int main(){
     char str[100];
-
     fgets(str,sizeof(str),stdin);
-    for(int i=0;i<strlen(str);i++){
-        int unique=1;
-        if(str[i] == '\n') 
-        continue;
-        for(int j=0;j<strlen(str);j++){
-            if(i!=j && str[i]==str[j]){
-                unique=0;
-                break;
-            }
+    int len=0;
+    while (str[len]!='\0'){
+        len++;
+    }
+    for(int i=len-1;i>=0;i--){
+        if(str[i]!='\n'){
+            printf("%c",str[i]);
         }
-        if(unique==1){
-        printf("%c",str[i]);
-        return 0;
     }
-    }
-    
-        printf("-1");
+    return 0;
     
 }
-    
-
